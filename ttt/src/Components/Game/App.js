@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
-import Board from "../board";
+import Board from "../Board";
+import { helper } from "../../helper";
 
 function App() {
   const square = [null, null, null, null, null, null, null, null, null];
