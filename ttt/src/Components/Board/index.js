@@ -1,12 +1,12 @@
 import React from "react";
-import Square from "../Square";
+import Square from "../square";
 
 function Board({ board, onClick }) {
   return (
     <div>
-      {board.map((item, index) => {
+      {board.map((square, index) => {
         return (
-          <Square text={item} index={index} onClick={onClick} key={index} />
+          <Square text={square} index={index} onClick={onClick} key={index} />
         );
       })}
     </div>

@@ -1,17 +1,16 @@
 import "./App.css";
 import { useState } from "react";
-import Board from "../Board";
+import Board from "../board";
 
 function App() {
-  const boardArray = [null, null, null, null, null, null, null, null, null];
-  const [board, setBoard] = useState(boardArray);
+  const square = [null, null, null, null, null, null, null, null, null];
+
+  const [board, setBoard] = useState(square);
 
   const [move, setMove] = useState(true);
-  // true - X
-  // false - 0
 
   function onClick(index) {
-    if (boardArray[index] === null) {
+    if (!board[index]) {
       let moveValue = null;
       if (move) {
         moveValue = "X";
