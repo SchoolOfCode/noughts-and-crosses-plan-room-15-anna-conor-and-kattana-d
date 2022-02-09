@@ -1,24 +1,14 @@
 import React from "react";
 import Square from "../Square";
 
-function Board() {
+function Board({ board, onClick }) {
   return (
     <div>
-      <div>
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div>
-        <Square />
-        <Square />
-        <Square />
-      </div>
-      <div>
-        <Square />
-        <Square />
-        <Square />
-      </div>
+      {board.map((item, index) => {
+        return (
+          <Square text={item} index={index} onClick={onClick} key={index} />
+        );
+      })}
     </div>
   );
 }

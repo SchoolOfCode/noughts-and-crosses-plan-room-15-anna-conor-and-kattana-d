@@ -3,16 +3,35 @@ import { useState } from "react";
 import Board from "../Board";
 
 function App() {
-  const [move, setMove] = useState("");
-  const board = [null, null, null, null, null, null, null, null, null];
-  function onClick() {}
+  const boardArray = [null, null, null, null, null, null, null, null, null];
+  const [board, setBoard] = useState(boardArray);
+
+  const [move, setMove] = useState(true);
+  // true - X
+  // false - 0
+
+  function onClick(index) {
+    if (boardArray[index] === null) {
+      let moveValue = null;
+      if (move) {
+        moveValue = "X";
+      } else {
+        moveValue = "O";
+      }
+      setMove(!move);
+
+      const newBoard = [
+        ...board.slice(0, index),
+        moveValue,
+        ...board.slice(index + 1),
+      ];
+      setBoard(newBoard);
+    }
+  }
+
   return (
     <div>
-      <Board
-        onClick={(event) => {
-          setMove();
-        }}
-      />
+      <Board board={board} onClick={onClick} />
     </div>
   );
 }
