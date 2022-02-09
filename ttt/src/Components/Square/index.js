@@ -1,7 +1,6 @@
 import React from "react";
-/* import css from "./square.module.css"; */
 
-function Square({ onClick, text, index }) {
+function Square({ onClick, text, index, className }) {
   return (
     <div>
       <button
@@ -9,8 +8,9 @@ function Square({ onClick, text, index }) {
         onClick={() => {
           onClick(index);
         }}
+        className={className}
       >
-        {text}...
+        {text}
       </button>
     </div>
   );

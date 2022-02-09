@@ -1,0 +1,14 @@
+.BoardDiv {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 1rem;
+  width: 400px;
+  height: 400px;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+.Square {
+  width: 100px;
+  height: 100px;
+}

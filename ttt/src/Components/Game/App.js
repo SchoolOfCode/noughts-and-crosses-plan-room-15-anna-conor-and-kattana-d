@@ -1,7 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import Board from "../Board";
-import { helper } from "../../helper";
+import Winner from "../Winner";
+import { calculateWinner } from "../../helper";
 
 function App() {
   const square = [null, null, null, null, null, null, null, null, null];
@@ -10,8 +11,10 @@ function App() {
 
   const [move, setMove] = useState(true);
 
+  const winner = calculateWinner(board);
+
   function onClick(index) {
-    if (!board[index]) {
+    if (winner || !board[index]) {
       let moveValue = null;
       if (move) {
         moveValue = "X";
@@ -32,6 +35,7 @@ function App() {
   return (
     <div>
       <Board board={board} onClick={onClick} />
+      <Winner text={winner} />
     </div>
   );
 }

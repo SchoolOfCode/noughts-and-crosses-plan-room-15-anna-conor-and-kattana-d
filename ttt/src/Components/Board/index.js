@@ -1,12 +1,19 @@
 import React from "react";
 import Square from "../Square";
+import css from "./board.module.css";
 
 function Board({ board, onClick }) {
   return (
-    <div>
+    <div className={css.BoardDiv}>
       {board.map((square, index) => {
         return (
-          <Square text={square} index={index} onClick={onClick} key={index} />
+          <Square
+            className={css.Square}
+            text={square}
+            index={index}
+            onClick={onClick}
+            key={index}
+          />
         );
       })}
     </div>
